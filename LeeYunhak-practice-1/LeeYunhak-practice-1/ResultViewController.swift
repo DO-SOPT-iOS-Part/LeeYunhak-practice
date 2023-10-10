@@ -12,21 +12,33 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindText()
-        // Do any additional setup after loading the view.
+        setTitleStyle()
     }
+    
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
     @IBOutlet var passwordLabel: UILabel!
+    @IBOutlet var genderLabel: UILabel!
+    @IBOutlet var ageLabel: UILabel!
     
     var email: String = ""
     var password: String = ""
-
-
+    var gender: String = ""
+    var age: String = ""
+    
     var delegate: GetDataProtocol?
     var loginDataCompletion: (([String]) -> Void)?
     
+    private func setTitleStyle() {
+        self.titleLabel.font = .systemFont(ofSize: 26, weight: .bold)
+
+    }
+    
     private func bindText() {
-        self.emailLabel.text = "email : \(email)"
-        self.passwordLabel.text = "password : \(password)"
+        self.emailLabel.text = "Email : \(email == "" ? "Check your Email" : "\(email)")"
+        self.passwordLabel.text = "Password : \(password == "" ? "Check your password" : "\(password)")"
+        self.genderLabel.text = "Gender: \(gender == "" ? "Check your Gender" : "\(gender)")"
+        self.ageLabel.text = "Age: \(age == "" ? "Check your age" : "\(age)")"
     }
     
     @IBAction func backButtonTap(_ sender: Any) {
@@ -40,14 +52,4 @@ class ResultViewController: UIViewController {
         loginDataCompletion([self.email, self.password])
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
