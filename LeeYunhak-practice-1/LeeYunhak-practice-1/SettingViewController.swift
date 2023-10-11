@@ -10,17 +10,38 @@ import UIKit
 class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
-        bindText()
         super.viewDidLoad()
+        bindText()
+        setStyle()
         // Do any additional setup after loading the view.
     }
     
+    private func bindText() {
+        emailTextEditorLabel.text = email
+        
+        passwordTextEditorLabel.text = password
+        
+        genderSelection.selectedSegmentIndex = gender ?? 0
+        ageSlider.minimumValue = 5
+        ageSlider.maximumValue = 80
+        
+        ageSlider.value = Float(age ?? 30)
+        ageLabel.text = "\(age ?? 30)"
+    }
+    
+    private func setStyle() {
+        
+        self.ageLabel.font = .preferredFont(forTextStyle: .headline)
+        self.ageLabel.shadowColor = .systemGray6
+        self.ageLabel.textColor = ageSlider.value < 20 ? .systemGreen : .systemTeal
+        self.ageSlider.tintColor = ageSlider.value < 20 ? .systemGreen : .systemTeal
+    }
     
     @IBOutlet var settingTitleLabel: UILabel!
     @IBOutlet var emailTextEditorLabel: UITextField!
     @IBOutlet var passwordTextEditorLabel: UITextField!
     @IBOutlet var genderSelection: UISegmentedControl!
-    @IBOutlet var ageSelection: UISlider!
+    @IBOutlet var ageSlider: UISlider!
     @IBOutlet var ageLabel: UILabel!
     
     var email: String? = nil
@@ -53,6 +74,9 @@ class SettingViewController: UIViewController {
         guard let slider = sender as? UISlider else {return}
         self.age = Int(slider.value)
         ageLabel.text = "\(age ?? 0)"
+        
+        self.ageLabel.textColor = slider.value < 20 ? .systemGreen : .systemTeal
+        self.ageSlider.tintColor = slider.value < 20 ? .systemGreen : .systemTeal
     }
     
    
@@ -64,16 +88,5 @@ class SettingViewController: UIViewController {
     }
     
     
-    private func bindText() {
-        emailTextEditorLabel.text = email
-        
-        passwordTextEditorLabel.text = password
-        
-        genderSelection.selectedSegmentIndex = gender ?? 0
-        ageSelection.minimumValue = 5
-        ageSelection.maximumValue = 80
-        
-        ageSelection.value = Float(age ?? 30)
-        ageLabel.text = "\(age ?? 30)"
-    }
+    
 }

@@ -12,7 +12,7 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindText()
-        setTitleStyle()
+        setStyle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,6 +26,9 @@ class ResultViewController: UIViewController {
     @IBOutlet var genderLabel: UILabel!
     @IBOutlet var ageLabel: UILabel!
     
+    @IBOutlet var settingButtonLabel: UIButton!
+    @IBOutlet var backButtonLabel: UIButton!
+    
     var email: String?
     var password: String?
     var gender: Int? = nil
@@ -34,9 +37,15 @@ class ResultViewController: UIViewController {
     var delegate: GetDataProtocol?
     //var loginDataCompletion: (([String]) -> Void)?
     
-    private func setTitleStyle() {
+    private func setStyle() {
         self.titleLabel.font = .systemFont(ofSize: 26, weight: .bold)
-
+        
+        self.settingButtonLabel.tintColor = .systemRed
+        self.settingButtonLabel.backgroundColor = .systemGray6
+        
+        self.backButtonLabel.tintColor = .systemGray
+        self.backButtonLabel.backgroundColor = .systemGray6
+        
     }
     
     private func bindText() {

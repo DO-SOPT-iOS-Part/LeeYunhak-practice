@@ -21,12 +21,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStyle()
         //self.navigationItem.title = "zedd"
     }
     
+    private func setStyle() {
+        self.descriptionLabel.font = .systemFont(ofSize: 26, weight: .bold)
+        
+        self.loginButton.tintColor = .white
+        self.loginButton.backgroundColor = .darkGray
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-        bindData()
         super.viewWillAppear(true)
+        bindData()
     }
     
     private func bindData() {
