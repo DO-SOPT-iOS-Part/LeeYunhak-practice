@@ -15,19 +15,24 @@ class ResultViewController: UIViewController {
         setTitleStyle()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        bindText()
+        super.viewWillAppear(true)
+    }
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
     @IBOutlet var passwordLabel: UILabel!
     @IBOutlet var genderLabel: UILabel!
     @IBOutlet var ageLabel: UILabel!
     
-    var email: String = ""
-    var password: String = ""
-    var gender: String = ""
-    var age: String = ""
+    var email: String?
+    var password: String?
+    var gender: Int? = nil
+    var age: Int? = nil
     
     var delegate: GetDataProtocol?
-    var loginDataCompletion: (([String]) -> Void)?
+    //var loginDataCompletion: (([String]) -> Void)?
     
     private func setTitleStyle() {
         self.titleLabel.font = .systemFont(ofSize: 26, weight: .bold)
@@ -35,11 +40,34 @@ class ResultViewController: UIViewController {
     }
     
     private func bindText() {
-        self.emailLabel.text = "Email : \(email == "" ? "Check your Email" : "\(email)")"
-        self.passwordLabel.text = "Password : \(password == "" ? "Check your password" : "\(password)")"
-        self.genderLabel.text = "Gender: \(gender == "" ? "Check your Gender" : "\(gender)")"
-        self.ageLabel.text = "Age: \(age == "" ? "Check your age" : "\(age)")"
+        self.emailLabel.text = "Email : \(email ?? "Check your Email")"
+        self.passwordLabel.text = "Password : \(password ?? "Check your password")"
+        self.genderLabel.text = "Gender: \(genderText())"
+        self.ageLabel.text = "Age: \(ageText())"
     }
+    
+    private func genderText() -> String {
+        switch gender {
+        case 0 :
+            return "Man"
+        case 1 :
+            return "Woman"
+        case 2 :
+            return "Etc."
+        default :
+            return "Check your gender"
+        }
+    }
+    
+    private func ageText() -> String {
+        if let n = age {
+            return "\(n)"
+        } else {
+            return "Check your age"
+        }
+    }
+    
+    
     
     @IBAction func backButtonTap(_ sender: Any) {
         if let navigationController = self.navigationController {
@@ -47,9 +75,30 @@ class ResultViewController: UIViewController {
         } else {
             self.dismiss(animated: true)
         }
-        delegate?.getLoginData(email: self.email, password: self.password)
-        guard let loginDataCompletion else {return}
-        loginDataCompletion([self.email, self.password])
+        delegate?.getData(email: email, password: password, gender: gender, age: age)
+        //guard let loginDataCompletion else {return}
+        //loginDataCompletion([self.email, self.password])
     }
     
+    
+    @IBAction func SettingButtonTap(_ sender: Any) {
+        guard let settingVC = self.storyboard?.instantiateViewController(identifier: "SettingViewController") as? SettingViewController else {return}
+        settingVC.email = email
+        settingVC.password = password
+        settingVC.gender = gender ?? 2
+        settingVC.age = age ?? 30
+        
+        settingVC.delegate = self
+        self.navigationController?.pushViewController(settingVC, animated: true)
+    }
+    
+}
+
+extension ResultViewController: GetDataProtocol {
+    func getData(email: String?, password: String?, gender: Int?, age: Int?) {
+        self.email = email
+        self.password = password
+        self.gender = gender
+        self.age = age
+    }
 }

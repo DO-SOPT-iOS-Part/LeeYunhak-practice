@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입 해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9M-rO-BJD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인을 해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9M-rO-BJD">
                                 <rect key="frame" x="30" y="231" width="333" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -43,7 +43,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRh-or-MoF">
                                 <rect key="frame" x="50" y="470" width="293" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="회원가입"/>
+                                <buttonConfiguration key="configuration" style="plain" title="로그인"/>
                                 <connections>
                                     <action selector="loginButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gu6-ZQ-l8V"/>
                                 </connections>
@@ -69,7 +69,9 @@
                     <navigationItem key="navigationItem" id="tJn-GQ-EpF"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="Y9M-rO-BJD" id="8UI-1l-dWu"/>
+                        <outlet property="idTextFieldLabel" destination="A1Y-t5-9gE" id="lq1-EL-zT0"/>
                         <outlet property="loginButton" destination="eRh-or-MoF" id="67z-jn-2Ol"/>
+                        <outlet property="passwordTextFieldLabel" destination="vja-Tb-Ntc" id="izt-rJ-hNt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -85,43 +87,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvM-Su-hPX">
-                                <rect key="frame" x="40" y="183.33333333333334" width="313" height="21"/>
+                                <rect key="frame" x="40" y="184.33333333333334" width="313" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awf-C7-RgG">
-                                <rect key="frame" x="40" y="244.33333333333334" width="313" height="21.000000000000028"/>
+                                <rect key="frame" x="40" y="245.33333333333334" width="313" height="21.000000000000028"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nx6-Xd-sQt">
-                                <rect key="frame" x="150" y="432.33333333333331" width="93" height="35"/>
+                                <rect key="frame" x="90" y="433.33333333333331" width="83" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="정보 수정"/>
+                                <buttonConfiguration key="configuration" style="plain" title="돌아가기"/>
                                 <connections>
                                     <action selector="backButtonTap:" destination="wI4-gS-Zf8" eventType="touchUpInside" id="G3Q-hl-Gv0"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjj-Dg-kpI">
-                                <rect key="frame" x="40" y="305.33333333333331" width="313" height="21"/>
+                                <rect key="frame" x="40" y="306.33333333333331" width="313" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원 정보" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ces-MZ-jI7">
-                                <rect key="frame" x="40" y="123.99999999999999" width="313" height="19.333333333333329"/>
+                                <rect key="frame" x="40" y="123.99999999999999" width="313" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsu-7D-CY1">
-                                <rect key="frame" x="40" y="366.33333333333331" width="313" height="21"/>
+                                <rect key="frame" x="40" y="367.33333333333331" width="313" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuA-hw-JLk">
+                                <rect key="frame" x="220" y="433.33333333333331" width="83" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="수정하기"/>
+                                <connections>
+                                    <action selector="SettingButtonTap:" destination="wI4-gS-Zf8" eventType="touchUpInside" id="3yF-BE-djs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Y2-Bf-BdT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,12 +139,12 @@
                             <constraint firstItem="kjj-Dg-kpI" firstAttribute="leading" secondItem="5Y2-Bf-BdT" secondAttribute="leading" constant="40" id="2rF-lE-4A2"/>
                             <constraint firstItem="ces-MZ-jI7" firstAttribute="leading" secondItem="5Y2-Bf-BdT" secondAttribute="leading" constant="40" id="32j-H2-mzP"/>
                             <constraint firstItem="ces-MZ-jI7" firstAttribute="top" secondItem="5Y2-Bf-BdT" secondAttribute="top" constant="65" id="9M9-Fw-IzT"/>
-                            <constraint firstItem="nx6-Xd-sQt" firstAttribute="leading" secondItem="5Y2-Bf-BdT" secondAttribute="leading" constant="150" id="GX8-Ku-j6x"/>
+                            <constraint firstItem="XuA-hw-JLk" firstAttribute="top" secondItem="zsu-7D-CY1" secondAttribute="bottom" constant="45" id="Lxf-cP-ze5"/>
                             <constraint firstItem="5Y2-Bf-BdT" firstAttribute="trailing" secondItem="kjj-Dg-kpI" secondAttribute="trailing" constant="40" id="NOO-Ss-3Ny"/>
                             <constraint firstItem="5Y2-Bf-BdT" firstAttribute="trailing" secondItem="Awf-C7-RgG" secondAttribute="trailing" constant="40" id="O76-hb-bSG"/>
                             <constraint firstItem="5Y2-Bf-BdT" firstAttribute="trailing" secondItem="PvM-Su-hPX" secondAttribute="trailing" constant="40" id="Qog-tk-b3f"/>
-                            <constraint firstItem="5Y2-Bf-BdT" firstAttribute="trailing" secondItem="nx6-Xd-sQt" secondAttribute="trailing" constant="150" id="Sc3-Ap-XeT"/>
                             <constraint firstItem="kjj-Dg-kpI" firstAttribute="top" secondItem="Awf-C7-RgG" secondAttribute="bottom" constant="40" id="bKG-De-3RF"/>
+                            <constraint firstItem="5Y2-Bf-BdT" firstAttribute="trailing" secondItem="XuA-hw-JLk" secondAttribute="trailing" constant="90" id="egh-ej-PLE"/>
                             <constraint firstItem="zsu-7D-CY1" firstAttribute="leading" secondItem="5Y2-Bf-BdT" secondAttribute="leading" constant="40" id="g96-JR-QnJ"/>
                             <constraint firstItem="PvM-Su-hPX" firstAttribute="top" secondItem="ces-MZ-jI7" secondAttribute="bottom" constant="40" id="mZ0-8Y-hhO"/>
                             <constraint firstItem="PvM-Su-hPX" firstAttribute="leading" secondItem="5Y2-Bf-BdT" secondAttribute="leading" constant="40" id="mcP-L2-cLX"/>
@@ -144,6 +154,7 @@
                             <constraint firstItem="Awf-C7-RgG" firstAttribute="top" secondItem="PvM-Su-hPX" secondAttribute="bottom" constant="40" id="vBI-6L-MW2"/>
                             <constraint firstItem="zsu-7D-CY1" firstAttribute="top" secondItem="kjj-Dg-kpI" secondAttribute="bottom" constant="40" id="w4b-UP-b6g"/>
                             <constraint firstItem="5Y2-Bf-BdT" firstAttribute="trailing" secondItem="ces-MZ-jI7" secondAttribute="trailing" constant="40" id="ysc-w0-xS3"/>
+                            <constraint firstItem="nx6-Xd-sQt" firstAttribute="leading" secondItem="5Y2-Bf-BdT" secondAttribute="leading" constant="90" id="z79-Zm-bSA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="nNw-Bk-odE"/>
@@ -157,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4U-3s-2DU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1896.9465648854962" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1900" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9Kg-rg-UYT">
@@ -185,43 +196,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YhK-NF-1k4">
+                                <rect key="frame" x="129" y="354" width="226" height="31"/>
+                                <connections>
+                                    <action selector="ageSliderDidEditing:" destination="wZ4-ZJ-UbI" eventType="valueChanged" id="yBG-MY-FZC"/>
+                                </connections>
+                            </slider>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qbK-cD-Ne4">
                                 <rect key="frame" x="131" y="168" width="222" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="emailTextFieldDidEditing:" destination="wZ4-ZJ-UbI" eventType="editingChanged" id="hZC-yE-Z5Q"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="84M-Rc-45F">
                                 <rect key="frame" x="131" y="229" width="222" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="passwordTextFieldDidEditing:" destination="wZ4-ZJ-UbI" eventType="editingChanged" id="bOV-Bt-KHq"/>
+                                </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oKW-06-gjC">
                                 <rect key="frame" x="131" y="292" width="222" height="32"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                    <segment title=""/>
+                                    <segment title="Man"/>
+                                    <segment title="Woman"/>
+                                    <segment title="Etc."/>
                                 </segments>
+                                <connections>
+                                    <action selector="genderSelectionDidEditing:" destination="wZ4-ZJ-UbI" eventType="valueChanged" id="q8L-d7-e5c"/>
+                                </connections>
                             </segmentedControl>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YhK-NF-1k4">
-                                <rect key="frame" x="129" y="354" width="226" height="31"/>
-                            </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yky-14-TOb">
                                 <rect key="frame" x="30" y="175" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5c-1Q-QsZ">
-                                <rect key="frame" x="30" y="236" width="74" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2s-FY-n6L">
+                                <rect key="frame" x="30" y="297" width="57" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2s-FY-n6L">
-                                <rect key="frame" x="30" y="297" width="57" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5c-1Q-QsZ">
+                                <rect key="frame" x="30" y="236" width="74" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -248,6 +271,9 @@
                                 <rect key="frame" x="169" y="434" width="54" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="저장"/>
+                                <connections>
+                                    <action selector="saveAndBackButton:" destination="wZ4-ZJ-UbI" eventType="touchUpInside" id="8Ul-u8-lIb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5j9-0i-K1k"/>
@@ -284,6 +310,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lU7-IV-5bl"/>
+                    <connections>
+                        <outlet property="ageLabel" destination="Asm-Dm-hJc" id="KYj-Of-UcZ"/>
+                        <outlet property="ageSelection" destination="YhK-NF-1k4" id="hHf-PG-Swd"/>
+                        <outlet property="emailTextEditorLabel" destination="qbK-cD-Ne4" id="WRR-bh-ivf"/>
+                        <outlet property="genderSelection" destination="oKW-06-gjC" id="mhT-D0-3Ul"/>
+                        <outlet property="passwordTextEditorLabel" destination="84M-Rc-45F" id="QSk-bG-e6B"/>
+                        <outlet property="settingTitleLabel" destination="X3o-p6-0sr" id="YBo-WR-dmm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMe-Gc-4fA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

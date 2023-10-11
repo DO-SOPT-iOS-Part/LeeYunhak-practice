@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GetDataProtocol {
-    func getLoginData(email: String, password: String)
+    func getData(email: String?, password: String?, gender: Int?, age: Int?)
 }
