@@ -8,33 +8,31 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var email: String? = nil
-    private var password: String? = nil
-    private var gender: Int? = nil
-    private var age: Int? = nil
-    
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet var loginButton: UIButton!
-    
-    @IBOutlet var idTextFieldLabel: UITextField!
-    @IBOutlet var passwordTextFieldLabel: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
-        //self.navigationItem.title = "zedd"
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        bindData()
+    }
+    
+    private var email: String?
+    private var password: String?
+    private var gender: Int?
+    private var age: Int?
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet var loginButton: UIButton!
+    @IBOutlet var idTextFieldLabel: UITextField!
+    @IBOutlet var passwordTextFieldLabel: UITextField!
     
     private func setStyle() {
         self.descriptionLabel.font = .systemFont(ofSize: 26, weight: .bold)
         
         self.loginButton.tintColor = .white
         self.loginButton.backgroundColor = .darkGray
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        bindData()
     }
     
     private func bindData() {
@@ -68,12 +66,16 @@ class ViewController: UIViewController {
         resultVC.password = password == "" ? nil : password
         resultVC.gender = gender
         resultVC.age = age
+        
          // delegate 패턴으로 데이터 받기
         resultVC.delegate = self
+        
         // 클로저를 이용해 데이터 받기
-        // resultVC.loginDataCompletion = {data in
-        //    print("클로저로 받아온 email : \(data[0]), 클로저로 받아온 password : \(data[1])")
-        //}
+        /* 
+         resultVC.loginDataCompletion = {data in
+         print("클로저로 받아온 email : \(data[0]), 클로저로 받아온 password : \(data[1])")
+         }
+         */
         
         self.navigationController?.pushViewController(resultVC, animated: true)
     }

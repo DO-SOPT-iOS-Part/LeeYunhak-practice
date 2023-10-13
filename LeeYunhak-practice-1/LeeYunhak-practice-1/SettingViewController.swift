@@ -13,8 +13,21 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         bindText()
         setStyle()
-        // Do any additional setup after loading the view.
     }
+    
+    @IBOutlet var settingTitleLabel: UILabel!
+    @IBOutlet var emailTextEditorLabel: UITextField!
+    @IBOutlet var passwordTextEditorLabel: UITextField!
+    @IBOutlet var genderSelection: UISegmentedControl!
+    @IBOutlet var ageSlider: UISlider!
+    @IBOutlet var ageLabel: UILabel!
+    
+    var email: String?
+    var password: String?
+    var gender: Int?
+    var age: Int?
+    
+    var delegate: GetDataProtocol?
     
     private func bindText() {
         emailTextEditorLabel.text = email
@@ -30,26 +43,15 @@ class SettingViewController: UIViewController {
     }
     
     private func setStyle() {
-        
         self.ageLabel.font = .preferredFont(forTextStyle: .headline)
         self.ageLabel.shadowColor = .systemGray6
+        setAgeColor()
+    }
+    
+    private func setAgeColor() {
         self.ageLabel.textColor = ageSlider.value < 20 ? .systemGreen : .systemTeal
         self.ageSlider.tintColor = ageSlider.value < 20 ? .systemGreen : .systemTeal
     }
-    
-    @IBOutlet var settingTitleLabel: UILabel!
-    @IBOutlet var emailTextEditorLabel: UITextField!
-    @IBOutlet var passwordTextEditorLabel: UITextField!
-    @IBOutlet var genderSelection: UISegmentedControl!
-    @IBOutlet var ageSlider: UISlider!
-    @IBOutlet var ageLabel: UILabel!
-    
-    var email: String? = nil
-    var password: String? = nil
-    var gender: Int? = nil
-    var age: Int? = nil
-    
-    var delegate: GetDataProtocol?
     
     @IBAction func emailTextFieldDidEditing(_ sender: Any) {
         guard let textField = sender as? UITextField else {return}
@@ -74,19 +76,13 @@ class SettingViewController: UIViewController {
         guard let slider = sender as? UISlider else {return}
         self.age = Int(slider.value)
         ageLabel.text = "\(age ?? 0)"
-        
-        self.ageLabel.textColor = slider.value < 20 ? .systemGreen : .systemTeal
-        self.ageSlider.tintColor = slider.value < 20 ? .systemGreen : .systemTeal
+        setAgeColor()
     }
     
-   
     @IBAction func saveAndBackButton(_ sender: Any) {
         if let navigationController = self.navigationController {
             navigationController.popViewController(animated: true)
         }
         delegate?.getData(email: email, password: password, gender: gender, age: age)
     }
-    
-    
-    
 }

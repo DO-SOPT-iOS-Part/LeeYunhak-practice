@@ -11,7 +11,6 @@ class ResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindText()
         setStyle()
     }
     
@@ -31,8 +30,8 @@ class ResultViewController: UIViewController {
     
     var email: String?
     var password: String?
-    var gender: Int? = nil
-    var age: Int? = nil
+    var gender: Int?
+    var age: Int?
     
     var delegate: GetDataProtocol?
     //var loginDataCompletion: (([String]) -> Void)?
@@ -76,8 +75,6 @@ class ResultViewController: UIViewController {
         }
     }
     
-    
-    
     @IBAction func backButtonTap(_ sender: Any) {
         if let navigationController = self.navigationController {
             navigationController.popViewController(animated: true)
@@ -85,10 +82,11 @@ class ResultViewController: UIViewController {
             self.dismiss(animated: true)
         }
         delegate?.getData(email: email, password: password, gender: gender, age: age)
-        //guard let loginDataCompletion else {return}
-        //loginDataCompletion([self.email, self.password])
+        /*
+        guard let loginDataCompletion else {return}
+        loginDataCompletion([self.email, self.password])
+         */
     }
-    
     
     @IBAction func SettingButtonTap(_ sender: Any) {
         guard let settingVC = self.storyboard?.instantiateViewController(identifier: "SettingViewController") as? SettingViewController else {return}
