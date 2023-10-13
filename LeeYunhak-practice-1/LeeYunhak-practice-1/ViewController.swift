@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
@@ -24,9 +24,9 @@ class ViewController: UIViewController {
     private var age: Int?
     
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet var loginButton: UIButton!
-    @IBOutlet var idTextFieldLabel: UITextField!
-    @IBOutlet var passwordTextFieldLabel: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var idTextFieldLabel: UITextField!
+    @IBOutlet weak var passwordTextFieldLabel: UITextField!
     
     private func setStyle() {
         self.descriptionLabel.font = .systemFont(ofSize: 26, weight: .bold)
@@ -93,7 +93,7 @@ class ViewController: UIViewController {
 }
 
 // Delegate 구현.
-extension ViewController: GetDataProtocol {
+extension LoginViewController: GetDataProtocol {
     func getData(email: String?, password: String?, gender: Int?, age: Int?) {
         self.password = password
         self.email = email

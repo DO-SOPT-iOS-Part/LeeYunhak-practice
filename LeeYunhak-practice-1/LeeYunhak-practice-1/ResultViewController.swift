@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+final class ResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,14 +19,14 @@ class ResultViewController: UIViewController {
         super.viewWillAppear(true)
     }
     
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var emailLabel: UILabel!
-    @IBOutlet var passwordLabel: UILabel!
-    @IBOutlet var genderLabel: UILabel!
-    @IBOutlet var ageLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
     
-    @IBOutlet var settingButtonLabel: UIButton!
-    @IBOutlet var backButtonLabel: UIButton!
+    @IBOutlet weak var settingButtonLabel: UIButton!
+    @IBOutlet weak var backButtonLabel: UIButton!
     
     var email: String?
     var password: String?

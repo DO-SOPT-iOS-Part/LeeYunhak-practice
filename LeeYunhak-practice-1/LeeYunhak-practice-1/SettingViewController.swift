@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+final class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,12 +15,12 @@ class SettingViewController: UIViewController {
         setStyle()
     }
     
-    @IBOutlet var settingTitleLabel: UILabel!
-    @IBOutlet var emailTextEditorLabel: UITextField!
-    @IBOutlet var passwordTextEditorLabel: UITextField!
-    @IBOutlet var genderSelection: UISegmentedControl!
-    @IBOutlet var ageSlider: UISlider!
-    @IBOutlet var ageLabel: UILabel!
+    @IBOutlet weak var settingTitleLabel: UILabel!
+    @IBOutlet weak var emailTextEditorLabel: UITextField!
+    @IBOutlet weak var passwordTextEditorLabel: UITextField!
+    @IBOutlet weak var genderSelection: UISegmentedControl!
+    @IBOutlet weak var ageSlider: UISlider!
+    @IBOutlet weak var ageLabel: UILabel!
     
     var email: String?
     var password: String?

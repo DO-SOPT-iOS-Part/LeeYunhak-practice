@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LeeYunhak_practice_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="LeeYunhak_practice_1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +71,7 @@
                         <outlet property="descriptionLabel" destination="Y9M-rO-BJD" id="8UI-1l-dWu"/>
                         <outlet property="idTextFieldLabel" destination="A1Y-t5-9gE" id="lq1-EL-zT0"/>
                         <outlet property="loginButton" destination="eRh-or-MoF" id="67z-jn-2Ol"/>
-                        <outlet property="passwordTextFieldLabel" destination="vja-Tb-Ntc" id="izt-rJ-hNt"/>
+                        <outlet property="passwordTextFieldLabel" destination="vja-Tb-Ntc" id="NNs-8K-Ft8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -138,6 +138,7 @@
                         <constraints>
                             <constraint firstItem="kjj-Dg-kpI" firstAttribute="leading" secondItem="5Y2-Bf-BdT" secondAttribute="leading" constant="40" id="2rF-lE-4A2"/>
                             <constraint firstItem="ces-MZ-jI7" firstAttribute="leading" secondItem="5Y2-Bf-BdT" secondAttribute="leading" constant="40" id="32j-H2-mzP"/>
+                            <constraint firstItem="XuA-hw-JLk" firstAttribute="leading" secondItem="nx6-Xd-sQt" secondAttribute="trailing" constant="47" id="3Po-cz-PG6"/>
                             <constraint firstItem="ces-MZ-jI7" firstAttribute="top" secondItem="5Y2-Bf-BdT" secondAttribute="top" constant="65" id="9M9-Fw-IzT"/>
                             <constraint firstItem="XuA-hw-JLk" firstAttribute="top" secondItem="zsu-7D-CY1" secondAttribute="bottom" constant="45" id="Lxf-cP-ze5"/>
                             <constraint firstItem="5Y2-Bf-BdT" firstAttribute="trailing" secondItem="kjj-Dg-kpI" secondAttribute="trailing" constant="40" id="NOO-Ss-3Ny"/>
@@ -162,7 +163,7 @@
                         <outlet property="ageLabel" destination="zsu-7D-CY1" id="Dtp-Rm-lmI"/>
                         <outlet property="backButtonLabel" destination="nx6-Xd-sQt" id="uFs-da-Buq"/>
                         <outlet property="emailLabel" destination="PvM-Su-hPX" id="18a-aB-6B0"/>
-                        <outlet property="genderLabel" destination="kjj-Dg-kpI" id="TE4-aW-YhM"/>
+                        <outlet property="genderLabel" destination="kjj-Dg-kpI" id="N5a-lt-Q8f"/>
                         <outlet property="passwordLabel" destination="Awf-C7-RgG" id="hYq-EH-dsf"/>
                         <outlet property="settingButtonLabel" destination="XuA-hw-JLk" id="LPz-DB-o5k"/>
                         <outlet property="titleLabel" destination="ces-MZ-jI7" id="rgJ-l4-xce"/>
@@ -287,6 +288,7 @@
                             <constraint firstItem="v2s-FY-n6L" firstAttribute="top" secondItem="h5c-1Q-QsZ" secondAttribute="bottom" constant="40" id="DpH-MK-A4r"/>
                             <constraint firstItem="h5c-1Q-QsZ" firstAttribute="leading" secondItem="5j9-0i-K1k" secondAttribute="leading" constant="30" id="HmC-Eh-Sn1"/>
                             <constraint firstItem="oKW-06-gjC" firstAttribute="top" secondItem="84M-Rc-45F" secondAttribute="bottom" constant="29" id="Kth-nk-OVm"/>
+                            <constraint firstItem="5j9-0i-K1k" firstAttribute="bottom" secondItem="xGV-Xn-01a" secondAttribute="bottom" constant="349" id="LWI-fJ-PKv"/>
                             <constraint firstItem="Yky-14-TOb" firstAttribute="top" secondItem="X3o-p6-0sr" secondAttribute="bottom" constant="30" id="Ls6-IL-aG1"/>
                             <constraint firstItem="YhK-NF-1k4" firstAttribute="leading" secondItem="5j9-0i-K1k" secondAttribute="leading" constant="131" id="M7a-vs-IaI"/>
                             <constraint firstItem="Asm-Dm-hJc" firstAttribute="top" secondItem="v2s-FY-n6L" secondAttribute="bottom" constant="40" id="Mxk-B0-RDU"/>
