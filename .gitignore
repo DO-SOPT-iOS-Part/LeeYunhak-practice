@@ -38,8 +38,7 @@ Temporary Items
 Packages
 .build/
 xcuserdata
-DerivedData/
-*.xcodeproj
+DerivedData/j
 
 
 ### Xcode ###
